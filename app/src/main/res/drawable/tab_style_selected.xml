@@ -8,7 +8,7 @@
         android:width="2dp"
         />
 
-    <solid android:color="@color/tabBackground"/>
+    <solid android:color="@color/tabBackground_selected"/>
 
 
 

@@ -22,14 +22,21 @@ public class TabTestActivity extends AppCompatActivity {
 
         fth_main.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
 
-        for(int i = 1; i < 5; i++){
-            View indicator = getTabIndicator(this, "Pestaña "+i);
-            TabHost.TabSpec spec = fth_main.newTabSpec("Contenido de pestaña "+i).setIndicator(indicator);
-            fth_main.addTab(spec, TestFragment.class, null);
-        }
+        //First tab
+        View indicator = getTabIndicator(this, "Inventory");
+        TabHost.TabSpec spec = fth_main.newTabSpec("Tab1").setIndicator(indicator);
+        fth_main.addTab(spec, InventoryFragment.class, null);
+
+        //Second tab
+        indicator = getTabIndicator(this, "Notes");
+        spec = fth_main.newTabSpec("Work in progress").setIndicator(indicator);
+        fth_main.addTab(spec, TestFragment.class, null);
+
 
     }
 
+
+    //TODO Move this to the fragment class which we want to use
     private View getTabIndicator(Context context, String title){
         View v = LayoutInflater.from(context).inflate(R.layout.tab_layout, null);
 

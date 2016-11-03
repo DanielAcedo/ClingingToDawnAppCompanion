@@ -3,4 +3,14 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- Tabs -->
+    <color name="tabBackground">#3e2723</color>
+    <color name="tabBackground_selected">#4e2723</color>
+    <color name="tabBorder">#292218</color>
+    <color name="tab_content_background">#212121</color>
+
+    <!-- Inventory Objects -->
+    <color name="inventoryObjectTitle">#ffffa9</color>
+
 </resources>

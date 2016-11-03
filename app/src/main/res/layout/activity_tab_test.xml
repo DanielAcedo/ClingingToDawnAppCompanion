@@ -19,7 +19,14 @@
             <TabWidget
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/fragment_style"
                 android:id="@android:id/tabs"/>
+
+            <View
+                android:layout_height="6dp"
+                android:layout_width="match_parent"
+                android:background="@color/tabBackground_selected"
+                android:layout_marginTop="-3dp"/>
 
             <FrameLayout
                 android:layout_width="match_parent"

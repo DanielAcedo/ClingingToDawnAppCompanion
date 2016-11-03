@@ -7,12 +7,12 @@
     android:paddingRight="3dp"
     android:paddingBottom="6dp"
     android:paddingTop="6dp"
-    android:background="@drawable/sel_tab">
+    android:background="@color/tab_content_background">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical|center_horizontal"
-        android:id="@+id/txv_tab_title"/>
+        android:id="@+id/txv_testfragment_text"/>
 
 </LinearLayout>
