@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">TabsTest</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Tabs -->
+    <string name="tab_inventory_title">Inventario</string>
+    <string name="tab_notes_title">Notas</string>
+
+    <!-- Main Menu -->
+    <string name="menu_main_disconnect_title">Desconectar</string>
+    <string name="menu_main_preferences_title">Preferencias</string>
+    <string name="menu_main_about_title">Acerca de</string>
+    
 </resources>

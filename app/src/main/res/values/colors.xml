@@ -2,13 +2,14 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#d50000</color>
 
     <!-- Tabs -->
-    <color name="tabBackground">#3e2723</color>
-    <color name="tabBackground_selected">#4e2723</color>
-    <color name="tabBorder">#292218</color>
-    <color name="tab_content_background">#212121</color>
+    <color name="tabBackground_dark">#3e2723</color>
+    <color name="tabBackground_selected_dark">#4e2723</color>
+    <color name="tabBorder_dark">#292218</color>
+    <color name="tab_content_background_dark">#212121</color>
+    <color name="tab_title_text_dark">#FFFFFF</color>
 
     <!-- Inventory Objects -->
     <color name="inventoryObjectTitle">#ffffa9</color>

@@ -4,11 +4,11 @@
     android:dither="true"
     >
 
-    <stroke android:color="@color/tabBorder"
+    <stroke android:color="@color/tabBorder_dark"
         android:width="2dp"
         />
 
-    <solid android:color="@color/tabBackground"/>
+    <solid android:color="@color/tabBackground_dark"/>
 
 
 

@@ -10,11 +10,21 @@ public class InventoryObject {
     private int quantity;
     private int image;
 
-    public InventoryObject(String name, String description, int quantity, int image){
+    private boolean stackable;
+    private boolean combinable;
+
+    public InventoryObject(String name, String description, int image, boolean combinable){
         this.name = name;
         this.description = description;
-        this.quantity = quantity;
         this.image = image;
+        this.stackable = false;
+        this.combinable = combinable;
+    }
+
+    public InventoryObject(String name, String description, int image, boolean combinable, int quantity){
+        this(name, description, image, combinable);
+        this.stackable = true;
+        this.quantity = quantity;
     }
 
     public String getName() {
@@ -47,5 +57,13 @@ public class InventoryObject {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public boolean isStackable() {
+        return stackable;
+    }
+
+    public boolean isCombinable() {
+        return combinable;
     }
 }
