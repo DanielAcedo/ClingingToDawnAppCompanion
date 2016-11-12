@@ -13,6 +13,7 @@
 
     <!-- Inventory Objects -->
     <color name="inventoryObjectTitle">#ffffa9</color>
+    <color name="inventoryObjectBackground_selected">#cc2e1d1d</color>
 
     <!-- Read Note Activity -->
     <color name="readNote_content_background">#c1888888</color>
