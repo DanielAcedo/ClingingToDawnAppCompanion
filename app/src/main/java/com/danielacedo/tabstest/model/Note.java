@@ -14,7 +14,7 @@ public class Note {
     public Note(String title, String content){
         this.title = title;
         this.content = content;
-        this.backgroundImage = R.drawable.note_background_default;
+        this.backgroundImage = R.drawable.notedefaultbackground;
     }
 
     public Note(String title, String content, int backgroundImage){

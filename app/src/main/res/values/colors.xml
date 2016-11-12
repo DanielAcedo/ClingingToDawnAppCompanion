@@ -14,4 +14,8 @@
     <!-- Inventory Objects -->
     <color name="inventoryObjectTitle">#ffffa9</color>
 
+    <!-- Read Note Activity -->
+    <color name="readNote_content_background">#c1888888</color>
+    <color name="readNote_content_textColor">#212121</color>
+
 </resources>
