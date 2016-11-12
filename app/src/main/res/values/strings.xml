@@ -9,5 +9,9 @@
     <string name="menu_main_disconnect_title">Desconectar</string>
     <string name="menu_main_preferences_title">Preferencias</string>
     <string name="menu_main_about_title">Acerca de</string>
+
+    <!-- Main Preferences -->
+    <string name="menu_main_preferences_lightStyle_title">Estilo claro</string>
+
     
 </resources>

@@ -3,6 +3,6 @@
 
     <SwitchPreference
         android:defaultValue="false"
-        android:title="Switch preference"
-        android:key="switch_preference_1" />
+        android:title="@string/menu_main_preferences_lightStyle_title"
+        android:key="lightTheme" />
 </PreferenceScreen>

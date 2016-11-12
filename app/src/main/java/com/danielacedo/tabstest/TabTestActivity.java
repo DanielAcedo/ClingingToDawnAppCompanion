@@ -30,8 +30,8 @@ public class TabTestActivity extends AppCompatActivity {
 
         //Second tab
         indicator = getTabIndicator(this, getResources().getString(R.string.tab_notes_title));
-        spec = fth_main.newTabSpec("Work in progress").setIndicator(indicator);
-        fth_main.addTab(spec, TestFragment.class, null);
+        spec = fth_main.newTabSpec("Tab2").setIndicator(indicator);
+        fth_main.addTab(spec, NoteListFragment.class, null);
 
 
     }

@@ -12,6 +12,6 @@ public class OptionSettings extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R);
+        addPreferencesFromResource(R.menu.menu_main);
     }
 }
