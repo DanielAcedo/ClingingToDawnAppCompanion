@@ -12,6 +12,10 @@ import android.widget.TextView;
  * Created by Daniel on 03/11/2016.
  */
 
+/**
+ * Placeholder fragment that solely displays a text
+ * @author Daniel Acedo Calderón
+ */
 public class TestFragment extends Fragment {
 
     @Override

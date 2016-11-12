@@ -23,11 +23,11 @@ public class InventoryTabsApplication extends Application {
     private void initializeInventoryList(){
         inventoryObjectList = new ArrayList<InventoryObject>();
 
-        inventoryObjectList.add(new InventoryObject("Green Herb", "An herb that grows wild in this region", 2, R.drawable.greenherb));
-        inventoryObjectList.add(new InventoryObject("Red Herb", "An herb that grows wild in this region", 2, R.drawable.redherb));
-        inventoryObjectList.add(new InventoryObject("Battery", "With this, you can operate the elevator.", 1, R.drawable.battery));
-        inventoryObjectList.add(new InventoryObject("Old Key", "An old key of the mansion. Looks like you might be able to open most simply designed door locks.", 1, R.drawable.oldkey));
-        inventoryObjectList.add(new InventoryObject("Blue Gemstone", "It's beautifully cut and polished to a mirror-like surface", 1, R.drawable.bluegemstone));
+        inventoryObjectList.add(new InventoryObject("Green Herb", "An herb that grows wild in this region", R.drawable.greenherb, true, 2));
+        inventoryObjectList.add(new InventoryObject("Red Herb", "An herb that grows wild in this region", R.drawable.redherb, true, 2));
+        inventoryObjectList.add(new InventoryObject("Battery", "With this, you can operate the elevator.", R.drawable.battery, false));
+        inventoryObjectList.add(new InventoryObject("Old Key", "An old key of the mansion. Looks like you might be able to open most simply designed door locks.", R.drawable.oldkey, false));
+        inventoryObjectList.add(new InventoryObject("Blue Gemstone", "It's beautifully cut and polished to a mirror-like surface", R.drawable.bluegemstone, false));
     }
 
     public static List<InventoryObject> getInventoryObjectList(){

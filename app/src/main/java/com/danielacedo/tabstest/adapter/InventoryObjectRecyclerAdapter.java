@@ -35,7 +35,12 @@ public class InventoryObjectRecyclerAdapter extends RecyclerView.Adapter<Invento
     @Override
     public void onBindViewHolder(InventoryObjectHolder holder, int position) {
         holder.txv_inventoryObjectName.setText(inventoryObjectList.get(position).getName());
-        holder.txv_inventoryObjectQuantity.setText("x"+String.valueOf(inventoryObjectList.get(position).getQuantity()));
+
+        if(inventoryObjectList.get(position).isStackable()){
+            holder.txv_inventoryObjectQuantity.setText("x"+String.valueOf(inventoryObjectList.get(position).getQuantity()));
+        }else{
+            holder.txv_inventoryObjectQuantity.setText("");
+        }
         holder.imv_inventoryObjectImage.setImageResource(inventoryObjectList.get(position).getImage());
     }
 
