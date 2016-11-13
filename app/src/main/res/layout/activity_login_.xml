@@ -11,13 +11,21 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.danielacedo.clingingtodawn.Login_Activity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/logo_provisional"
+        android:id="@+id/imv_loginLogo"
+         />
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true"
         app:errorTextAppearance="@style/error"
         app:hintTextAppearance="@style/hint"
-        android:id="@+id/til_User">
+        android:id="@+id/til_User"
+        android:layout_below="@id/imv_loginLogo">
 
         <EditText
             android:layout_width="match_parent"
@@ -32,8 +40,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/til_User"
-        android:layout_alignStart="@id/til_User"
-        android:layout_alignLeft="@id/til_User"
         android:layout_marginTop="@dimen/widget_margin_top"
         app:errorEnabled="true"
         app:counterEnabled="true"
@@ -58,9 +64,22 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/til_Password"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="@dimen/widget_margin_top"
+        android:layout_marginTop="10dp"
         android:layout_alignParentEnd="true"
         android:id="@+id/chb_Remember" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/chb_Remember"
+        android:text="@string/txv_RecoverPassword"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:clickable="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:id="@+id/txv_RecoverPassword"
+        />
 
     <LinearLayout
         android:layout_width="fill_parent"

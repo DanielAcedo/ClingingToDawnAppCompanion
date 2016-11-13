@@ -9,7 +9,6 @@
     <string name="about_content">Clinging to Dawn Companion app.\n v0.1 \n\n Contact: DanielExMachina0451@gmail.com</string>
     <string name="menu_notelist_sortAlphabetically_title">Sort alph.</string>
     <string name="menu_main_preferences_rememberUser_title">Remember user</string>
-    <string name="Toast_SelectedCity"></string>
     <string name="Toast_SuccessfulRegister">Successful Registration</string>
     <string name="btn_ConfirmSignup">Sign up</string>
     <string name="btn_Register">Sign up</string>
@@ -22,7 +21,6 @@
     <string name="err_emailNotValid">Email is not valid</string>
     <string name="err_emptyData">You must insert a value in the field</string>
     <string name="err_passwordMismatch">Passwords don\'t match</string>
-    <string name="err_productBrand_empty"></string>
     <string name="menu_main_preferences_automaticLogin_summary">Automatic login at application start. Requires \'remember user\'</string>
     <string name="menu_main_preferences_automaticLogin_title">Automatic login</string>
     <string name="messagePassword">Insert password</string>
@@ -40,4 +38,5 @@
     <string name="txv_ProvinceRegister">Province</string>
     <string name="txv_User">User</string>
     <string name="txv_UserRegister">User</string>
+    <string name="txv_RecoverPassword"><a href="www.google.com">Recover password</a></string>
 </resources>

@@ -82,15 +82,6 @@ public class Register_Activity extends AppCompatActivity  implements IRegisterMv
         edt_CompanyNameRegister.setVisibility(value ? View.VISIBLE : View.GONE);
     }
 
-    /**
-     * Shows the currently selected City
-     */
-    private void showCitySelected(){
-        String city = spCity.getSelectedItem().toString();
-        String province = spProvince.getSelectedItem().toString();
-
-        Toast.makeText(getApplicationContext(), getResources().getString(R.string.Toast_SelectedCity, city, province), Toast.LENGTH_SHORT).show();
-    }
 
     /**
      * Loads the city spinner
@@ -132,9 +123,6 @@ public class Register_Activity extends AppCompatActivity  implements IRegisterMv
                         loadSpinnerCity(position);
                         break;
 
-                    case R.id.spn_CityRegister:
-                        showCitySelected();
-                        break;
                 }
 
             }

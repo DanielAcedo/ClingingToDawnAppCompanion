@@ -30,6 +30,7 @@
     <string name="btn_Register">Registrar</string>
     <string name="messagePassword">Introduzca la contraseña</string>
     <string name="messageUser">Introduzca el usuario</string>
+    <string name="txv_RecoverPassword"><a href="www.google.com">Recuperar contraseña</a></string>
 
     <!-- Register -->
     <string name="txv_UserRegister">Usuario</string>
@@ -45,7 +46,6 @@
     <string name="txv_CompanyNameRegister">Nombre de empresa</string>
     <string name="btn_ConfirmSignup">Registrarse</string>
     <string name="Toast_SuccessfulRegister">Registro exitoso</string>
-    <string name="Toast_SelectedCity">Ha seleccionado %1$s (%2$s)</string>
 
 
 </resources>
