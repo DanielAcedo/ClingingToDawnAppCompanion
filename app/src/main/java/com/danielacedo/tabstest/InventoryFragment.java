@@ -1,5 +1,6 @@
 package com.danielacedo.tabstest;
 
+import android.graphics.Region;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -8,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.danielacedo.tabstest.adapter.InventoryObjectRecyclerAdapter;
 import com.danielacedo.tabstest.model.InventoryObject;
@@ -29,7 +29,7 @@ public class InventoryFragment extends Fragment {
     private final int SPAN_NUMBER = 3; //Number of elements per row
 
     //RecyclerView selected element
-    InventoryObjectRecyclerAdapter.InventoryObjectHolder selectecInventoryObject;
+    InventoryObjectRecyclerAdapter.InventoryObjectHolder selectedInventoryObject;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,24 +46,25 @@ public class InventoryFragment extends Fragment {
         adapter = new InventoryObjectRecyclerAdapter(container.getContext(), new InventoryObjectRecyclerAdapter.InventoryObjectOnClick() {
             @Override
             public void onClick(InventoryObject inventoryObject, InventoryObjectRecyclerAdapter.InventoryObjectHolder holder) { //OnClick method to be executed for each recyclerview item
+                //region OnClickAdapter
                 txv_InventoryDescription.setText(inventoryObject.getDescription()); //Display the object's description in its TextView
 
                 if(!holder.getSelected()){
 
                     //If there was a selected item before we deselect it and change its background color back to normal
-                    if (selectecInventoryObject !=  null){
-                        selectecInventoryObject.setSelected(false);
-                        selectecInventoryObject.itemView.setBackgroundColor(getResources().getColor(R.color.tab_content_background_dark));
+                    if (selectedInventoryObject !=  null){
+                        selectedInventoryObject.setSelected(false);
+                        selectedInventoryObject.itemView.setBackgroundColor(getResources().getColor(R.color.tab_content_background_dark));
                     }
 
                     //Flag the item as selected and change its background color
-                    selectecInventoryObject = holder;
+                    selectedInventoryObject = holder;
                     holder.setSelected(true);
                     holder.itemView.setBackgroundColor(getResources().getColor(R.color.inventoryObjectBackground_selected));
                     holder.itemView.setBackgroundColor(getResources().getColor(R.color.inventoryObjectBackground_selected));
                 }
 
-
+                //endregion
             }
         });
         rcv_inventoryList.setAdapter(adapter);

@@ -16,14 +16,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
+        android:fadeScrollbars="false"
         android:layout_weight="8">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="8"
-            android:background="@color/readNote_content_background"
-            android:gravity="center"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:background="@color/inventoryObjectDescription_background"
+            android:textColor="@color/inventoryObjectDescription_textColor"
+            android:gravity="fill_vertical"
             android:id="@+id/txv_inventoryDescription"/>
     </ScrollView>
 
