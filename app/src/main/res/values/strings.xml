@@ -1,5 +1,5 @@
-<resources>
-    <string name="app_name">TabsTest</string>
+﻿<resources>
+    <string name="app_name" translatable="false">Clinging to Dawn Companion App</string>
 
     <!-- Tabs -->
     <string name="tab_inventory_title">Inventario</string>
@@ -10,8 +10,42 @@
     <string name="menu_main_preferences_title">Preferencias</string>
     <string name="menu_main_about_title">Acerca de</string>
 
+    <!-- NoteList Menu -->
+    <string name="menu_notelist_sortAlphabetically_title">Ordenar alf.</string>
+
     <!-- Main Preferences -->
-    <string name="menu_main_preferences_lightStyle_title">Estilo claro</string>
+    <string name="menu_main_preferences_lightStyle_title">Tema claro</string>
+    <string name="menu_main_preferences_rememberUser_title">Recordar usuario</string>
+    <string name="menu_main_preferences_automaticLogin_title">Login automático</string>
+    <string name="menu_main_preferences_automaticLogin_summary">Autenticación autómatica al inicio de la aplicación. Requiere recordar usuario.</string>
+
+    <!-- About -->
+    <string name="about_content">Clinging to Dawn Companion app.\n v0.1 \n\n Contacto: DanielExMachina0451@gmail.com</string>
+    
+     <!-- Login -->
+    <string name="txv_User">Usuario</string>
+    <string name="txv_Pass">Contraseña</string>
+    <string name="chb_Remember">Recordar</string>
+    <string name="btn_Login" translatable="false">Login</string>
+    <string name="btn_Register">Registrar</string>
+    <string name="messagePassword">Introduzca la contraseña</string>
+    <string name="messageUser">Introduzca el usuario</string>
+
+    <!-- Register -->
+    <string name="txv_UserRegister">Usuario</string>
+    <string name="txv_PassRegister">Contraseña</string>
+    <string name="txv_ConfirmPass">Confirmar contraseña</string>
+    <string name="txv_Email">Email</string>
+    <string name="txv_ConfirmEmail">Confirmar email</string>
+    <string name="txv_ProvinceRegister">Provincia</string>
+    <string name="txv_CityRegister">Localidad</string>
+    <string name="rg_CompanyParticular">Tipo usuario</string>
+    <string name="rb_Company">Empresa</string>
+    <string name="rb_Particular">Particular</string>
+    <string name="txv_CompanyNameRegister">Nombre de empresa</string>
+    <string name="btn_ConfirmSignup">Registrarse</string>
+    <string name="Toast_SuccessfulRegister">Registro exitoso</string>
+    <string name="Toast_SelectedCity">Ha seleccionado %1$s (%2$s)</string>
 
 
 </resources>

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
 
     android:background="@color/tab_content_background_dark"
-    tools:context="com.danielacedo.tabstest.ReadNoteActivity">
+    tools:context="com.danielacedo.clingingtodawn.ReadNoteActivity">
 
     <TextView
         android:text="Diario del mayordomo"

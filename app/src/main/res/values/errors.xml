@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Login -->
+    <string name="err_emptyData">Debe introducir un valor en el campo</string>
+    <string name="err_Password_Digit">La contraseña debe tener al menos un dígito</string>
+    <string name="err_Password_UpperLowerCase">La contraseña debe tener al menos una letra mayúscula y otra minúscula</string>
+    <string name="err_Password_Length">La contraseña debe de tener 8 caracteres</string>
+
+    <!-- Register -->
+    <string name="err_passwordMismatch">Las contraseñas no coinciden</string>
+    <string name="err_emailMismatch">Los emails no coinciden</string>
+    <string name="err_emailNotValid">El email no es valido</string>
+    <string name="err_companyNameEmpty">El nombre de la empresa no puede estar vacío</string>
+
+</resources>

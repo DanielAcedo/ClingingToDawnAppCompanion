@@ -5,4 +5,16 @@
         android:defaultValue="false"
         android:title="@string/menu_main_preferences_lightStyle_title"
         android:key="lightTheme" />
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:title="@string/menu_main_preferences_rememberUser_title"
+        android:key="rememberUser"/>
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:title="@string/menu_main_preferences_automaticLogin_title"
+        android:summary="@string/menu_main_preferences_automaticLogin_summary"
+        android:key="automaticLogin"
+        />
 </PreferenceScreen>

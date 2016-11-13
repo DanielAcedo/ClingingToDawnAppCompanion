@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.danielacedo.tabstest">
+    package="com.danielacedo.clingingtodawn">
 
     <application
         android:name=".InventoryTabsApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo_provisional"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TabTestActivity">
+        <activity android:name=".Login_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ReadNoteActivity"></activity>
+        <activity android:name=".Register_Activity"/>
+        <activity android:name=".MainControlActivity"/>
+        <activity android:name=".ReadNoteActivity" android:theme="@style/NoBarTheme"/>
+        <activity
+            android:name=".OptionSettings"
+            android:theme="@style/preferenceTheme" />
+        <activity android:name=".AboutUsActivity"></activity>
+
     </application>
 
 </manifest>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="menu_main_about_title">About</string>
+    <string name="menu_main_disconnect_title">Disconnect</string>
+    <string name="menu_main_preferences_lightStyle_title">Light theme</string>
+    <string name="menu_main_preferences_title">Preferences</string>
+    <string name="tab_inventory_title">Inventory</string>
+    <string name="tab_notes_title">Notes</string>
+    <string name="about_content">Clinging to Dawn Companion app.\n v0.1 \n\n Contact: DanielExMachina0451@gmail.com</string>
+    <string name="menu_notelist_sortAlphabetically_title">Sort alph.</string>
+    <string name="menu_main_preferences_rememberUser_title">Remember user</string>
+    <string name="Toast_SelectedCity"></string>
+    <string name="Toast_SuccessfulRegister">Successful Registration</string>
+    <string name="btn_ConfirmSignup">Sign up</string>
+    <string name="btn_Register">Sign up</string>
+    <string name="chb_Remember">Remember</string>
+    <string name="err_Password_Digit">Password must contain at least one digit</string>
+    <string name="err_Password_Length">Password must be minimum 8 characters long</string>
+    <string name="err_Password_UpperLowerCase">Password must have at least one uppercase letter and one lowercase letter</string>
+    <string name="err_companyNameEmpty">Company name can\'t be empty</string>
+    <string name="err_emailMismatch">Emails don\'t match</string>
+    <string name="err_emailNotValid">Email is not valid</string>
+    <string name="err_emptyData">You must insert a value in the field</string>
+    <string name="err_passwordMismatch">Passwords don\'t match</string>
+    <string name="err_productBrand_empty"></string>
+    <string name="menu_main_preferences_automaticLogin_summary">Automatic login at application start. Requires \'remember user\'</string>
+    <string name="menu_main_preferences_automaticLogin_title">Automatic login</string>
+    <string name="messagePassword">Insert password</string>
+    <string name="messageUser">Insert user</string>
+    <string name="rb_Company">Company</string>
+    <string name="rb_Particular">Individual</string>
+    <string name="rg_CompanyParticular">User type</string>
+    <string name="txv_CityRegister">City</string>
+    <string name="txv_CompanyNameRegister">Company name</string>
+    <string name="txv_ConfirmEmail">Email confirmation</string>
+    <string name="txv_ConfirmPass">Password confirmation</string>
+    <string name="txv_Email">Email</string>
+    <string name="txv_Pass">Password</string>
+    <string name="txv_PassRegister">Password</string>
+    <string name="txv_ProvinceRegister">Province</string>
+    <string name="txv_User">User</string>
+    <string name="txv_UserRegister">User</string>
+</resources>
