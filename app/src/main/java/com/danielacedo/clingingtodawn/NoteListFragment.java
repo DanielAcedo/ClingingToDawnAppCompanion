@@ -25,15 +25,19 @@ public class NoteListFragment extends Fragment {
     private ListView lv_noteList;
     private NoteListAdapter adapter;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setHasOptionsMenu(true);
 
         View v = inflater.inflate(R.layout.notelist_fragment_layout, container, false);
 
         lv_noteList = (ListView)v.findViewById(R.id.lv_noteList);
-
         adapter = new NoteListAdapter(container.getContext());
         lv_noteList.setAdapter(adapter);
 

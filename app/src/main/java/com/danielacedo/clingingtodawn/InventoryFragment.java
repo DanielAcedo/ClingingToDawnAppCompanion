@@ -88,7 +88,9 @@ public class InventoryFragment extends Fragment {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putString(ITEM_DESCRIPTION, txv_InventoryDescription.getText().toString());
+        if(txv_InventoryDescription!=null){
+            outState.putString(ITEM_DESCRIPTION, txv_InventoryDescription.getText().toString());
+        }
         super.onSaveInstanceState(outState);
     }
 
