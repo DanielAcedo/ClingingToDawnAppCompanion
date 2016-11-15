@@ -1,5 +1,6 @@
 package com.danielacedo.clingingtodawn;
 
+import android.content.res.Configuration;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -25,7 +26,8 @@ public class InventoryFragment extends Fragment {
     RecyclerView rcv_inventoryList;
     InventoryObjectRecyclerAdapter adapter;
     TextView txv_InventoryDescription;
-    private final int SPAN_NUMBER = 3; //Number of elements per row
+    private final int SPAN_NUMBER_PORTRAIT = 3; //Number of elements per row on portrait
+    private final int SPAN_NUMBER_LANDSCAPE = 4; //Number of elements per row on landscape
 
     //RecyclerView selected element
     InventoryObjectRecyclerAdapter.InventoryObjectHolder selectedInventoryObject;
@@ -39,7 +41,12 @@ public class InventoryFragment extends Fragment {
 
         //RecyclerView
         rcv_inventoryList = (RecyclerView)v.findViewById(R.id.rcv_inventoryList);
-        rcv_inventoryList.setLayoutManager(new GridLayoutManager(container.getContext(), SPAN_NUMBER));
+
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            rcv_inventoryList.setLayoutManager(new GridLayoutManager(container.getContext(), SPAN_NUMBER_PORTRAIT));
+        }else{
+            rcv_inventoryList.setLayoutManager(new GridLayoutManager(container.getContext(), SPAN_NUMBER_LANDSCAPE));
+        }
 
         //Set Adapter
         adapter = new InventoryObjectRecyclerAdapter(container.getContext(), new InventoryObjectRecyclerAdapter.InventoryObjectOnClick() {
@@ -70,4 +77,6 @@ public class InventoryFragment extends Fragment {
 
         return v;
     }
+
+    
 }

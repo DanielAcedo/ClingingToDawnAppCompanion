@@ -71,6 +71,7 @@ public class NoteListAdapter extends ArrayAdapter<Note> {
         Comparator<Note> comparator = sortedAlphAscendent ? Note.compareAlphabeticallyDescendent : Note.compareAlphabeticallyAscendent;
         sortedAlphAscendent = !sortedAlphAscendent;
         sort(comparator);
+        notifyDataSetChanged();
     }
 
     static class NoteHolder{
