@@ -23,11 +23,12 @@ import com.danielacedo.clingingtodawn.model.InventoryObject;
  */
 public class InventoryFragment extends Fragment {
 
+    private final int SPAN_NUMBER_PORTRAIT = 3; //Number of elements per row on portrait
+    private final int SPAN_NUMBER_LANDSCAPE = 4; //Number of elements per row on landscape
+
     RecyclerView rcv_inventoryList;
     InventoryObjectRecyclerAdapter adapter;
     TextView txv_InventoryDescription;
-    private final int SPAN_NUMBER_PORTRAIT = 3; //Number of elements per row on portrait
-    private final int SPAN_NUMBER_LANDSCAPE = 4; //Number of elements per row on landscape
 
     //RecyclerView selected element
     InventoryObjectRecyclerAdapter.InventoryObjectHolder selectedInventoryObject;
@@ -42,6 +43,7 @@ public class InventoryFragment extends Fragment {
         //RecyclerView
         rcv_inventoryList = (RecyclerView)v.findViewById(R.id.rcv_inventoryList);
 
+        //Change the number of columns based on the screen orientation
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             rcv_inventoryList.setLayoutManager(new GridLayoutManager(container.getContext(), SPAN_NUMBER_PORTRAIT));
         }else{
@@ -78,5 +80,4 @@ public class InventoryFragment extends Fragment {
         return v;
     }
 
-    
 }
