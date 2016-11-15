@@ -1,6 +1,7 @@
 package com.danielacedo.clingingtodawn;
 
 import android.content.res.Configuration;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -26,13 +27,14 @@ public class InventoryFragment extends Fragment {
     private final int SPAN_NUMBER_PORTRAIT = 3; //Number of elements per row on portrait
     private final int SPAN_NUMBER_LANDSCAPE = 4; //Number of elements per row on landscape
 
+    private final String ITEM_DESCRIPTION = "description";
+
     private RecyclerView rcv_inventoryList;
     private InventoryObjectRecyclerAdapter adapter;
     private TextView txv_InventoryDescription;
 
     //RecyclerView selected element
     private InventoryObjectRecyclerAdapter.InventoryObjectHolder selectedInventoryObject;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -79,7 +81,22 @@ public class InventoryFragment extends Fragment {
         });
         rcv_inventoryList.setAdapter(adapter);
 
+
+
         return v;
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putString(ITEM_DESCRIPTION, txv_InventoryDescription.getText().toString());
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        if(savedInstanceState!=null){
+            txv_InventoryDescription.setText(savedInstanceState.getString(ITEM_DESCRIPTION));
+        }
+        super.onViewStateRestored(savedInstanceState);
+    }
 }
