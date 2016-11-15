@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class MainControlActivity extends AppCompatActivity {
 
-    FragmentTabHost fth_main;
+    private FragmentTabHost fth_main;
 
     public static String CALL_DISCONNECT = "disconnect";
 

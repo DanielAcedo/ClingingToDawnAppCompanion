@@ -26,12 +26,13 @@ public class InventoryFragment extends Fragment {
     private final int SPAN_NUMBER_PORTRAIT = 3; //Number of elements per row on portrait
     private final int SPAN_NUMBER_LANDSCAPE = 4; //Number of elements per row on landscape
 
-    RecyclerView rcv_inventoryList;
-    InventoryObjectRecyclerAdapter adapter;
-    TextView txv_InventoryDescription;
+    private RecyclerView rcv_inventoryList;
+    private InventoryObjectRecyclerAdapter adapter;
+    private TextView txv_InventoryDescription;
 
     //RecyclerView selected element
-    InventoryObjectRecyclerAdapter.InventoryObjectHolder selectedInventoryObject;
+    private InventoryObjectRecyclerAdapter.InventoryObjectHolder selectedInventoryObject;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -64,6 +65,7 @@ public class InventoryFragment extends Fragment {
                         selectedInventoryObject.setSelected(false);
                         selectedInventoryObject.itemView.setBackgroundColor(getResources().getColor(R.color.tab_content_background_dark));
                     }
+
 
                     //Flag the item as selected and change its background color
                     selectedInventoryObject = holder;

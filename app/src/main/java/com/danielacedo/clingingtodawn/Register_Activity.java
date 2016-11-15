@@ -23,7 +23,7 @@ import com.danielacedo.clingingtodawn.presenter.RegisterPresenter;
  */
 public class Register_Activity extends AppCompatActivity  implements IRegisterMvp.View{
 
-    IRegisterMvp.Presenter presenter;
+    private IRegisterMvp.Presenter presenter;
 
     private Spinner spProvince;
     private Spinner spCity;

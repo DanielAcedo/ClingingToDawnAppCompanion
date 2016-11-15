@@ -14,8 +14,8 @@ public class ReadNoteActivity extends AppCompatActivity {
     public static final String CONTENT = "content";
     public static final String BACKGROUND = "background";
 
-    TextView txv_title, txv_content;
-    ScrollView scv_content;
+    private TextView txv_title, txv_content;
+    private ScrollView scv_content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
