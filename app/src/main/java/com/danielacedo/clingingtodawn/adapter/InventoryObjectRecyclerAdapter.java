@@ -53,6 +53,7 @@ public class InventoryObjectRecyclerAdapter extends RecyclerView.Adapter<Invento
         }else{
             holder.txv_inventoryObjectQuantity.setText("");
         }
+
         holder.imv_inventoryObjectImage.setImageResource(inventoryObjectList.get(position).getImage());
     }
 

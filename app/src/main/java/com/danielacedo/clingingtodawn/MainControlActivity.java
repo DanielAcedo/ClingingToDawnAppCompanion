@@ -2,9 +2,12 @@ package com.danielacedo.clingingtodawn;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentTabHost;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,30 +15,68 @@ import android.view.View;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.danielacedo.clingingtodawn.adapter.MainViewPagerAdapter;
+
 public class MainControlActivity extends AppCompatActivity {
 
-    private FragmentTabHost fth_main;
+    private TabLayout tablayout;
+    private Toolbar toolbar;
+    private ViewPager viewpager;
+    private MainViewPagerAdapter adapter;
+
 
     public static String CALL_DISCONNECT = "disconnect";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_control);
+        setContentView(R.layout.activity_main_contro_tablayoutl);
 
-        fth_main = (FragmentTabHost)findViewById(R.id.fth_main);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        fth_main.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
+        tablayout = (TabLayout) findViewById(R.id.tablayout);
+        tablayout.addTab(tablayout.newTab().setText(R.string.tab_inventory_title));
+        tablayout.addTab(tablayout.newTab().setText(R.string.tab_notes_title));
 
-        //First tab
-        View indicator = getTabIndicator(this, getResources().getString(R.string.tab_inventory_title));
-        TabHost.TabSpec spec = fth_main.newTabSpec("Tab1").setIndicator(indicator);
-        fth_main.addTab(spec, InventoryFragment.class, null);
+        viewpager = (ViewPager)findViewById(R.id.viewpager);
+        adapter = new MainViewPagerAdapter(getSupportFragmentManager(), tablayout.getTabCount());
+        viewpager.setAdapter(adapter);
 
-        //Second tab
-        indicator = getTabIndicator(this, getResources().getString(R.string.tab_notes_title));
-        spec = fth_main.newTabSpec("Tab2").setIndicator(indicator);
-        fth_main.addTab(spec, NoteListFragment.class, null);
+        tablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewpager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                tablayout.getTabAt(position).select();
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
 
 
     }
