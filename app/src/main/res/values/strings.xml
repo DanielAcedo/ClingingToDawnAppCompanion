@@ -10,6 +10,9 @@
     <string name="menu_main_preferences_title">Preferencias</string>
     <string name="menu_main_about_title">Acerca de</string>
 
+    <!-- Inventory Menu -->
+    <string name="menu_inventory_changeMode">Cambiar modo</string>
+
     <!-- NoteList Menu -->
     <string name="menu_notelist_sortAlphabetically_title">Ordenar alf.</string>
 
@@ -18,6 +21,11 @@
     <string name="menu_main_preferences_rememberUser_title">Recordar usuario</string>
     <string name="menu_main_preferences_automaticLogin_title">Login automático</string>
     <string name="menu_main_preferences_automaticLogin_summary">Autenticación autómatica al inicio de la aplicación. Requiere recordar usuario.</string>
+
+    <!-- Inventory -->
+    <string name="inventory_changed_mode">Has cambiado a modo %1$s</string>
+    <string name="inventory_COMBINE_MODE">combinar</string>
+    <string name="inventory_MOVE_MODE">mover</string>
 
     <!-- About -->
     <string name="about_content">Clinging to Dawn Companion app.\n v0.1 \n\n Contacto: DanielExMachina0451@gmail.com</string>

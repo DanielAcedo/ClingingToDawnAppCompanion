@@ -2,17 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_main_preferences"
-        android:title="@string/menu_main_preferences_title"
-        app:showAsAction="never"/>
-
-    <item
-        android:id="@+id/menu_main_about"
-        android:title="@string/menu_main_about_title"
-        app:showAsAction="never"/>
-
-    <item
-        android:id="@+id/menu_main_disconnect"
-        android:title="@string/menu_main_disconnect_title"
-        app:showAsAction="never"/>
+        android:id="@+id/item_changeMode"
+        app:showAsAction="always"
+        android:title="@string/menu_inventory_changeMode"
+        />
 </menu>

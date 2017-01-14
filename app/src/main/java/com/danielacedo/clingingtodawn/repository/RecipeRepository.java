@@ -44,7 +44,6 @@ public class RecipeRepository {
     }
 
     public ItemRecipe findRecipe(InventoryObject ingredient1, InventoryObject ingredient2) throws NoRecipeWithSuchIngredientsException {
-        ItemRecipe recipe = null;
 
         for (ItemRecipe i : recipeList) {
             if(i.getIngredient1().getObject().getId() == ingredient1.getId()

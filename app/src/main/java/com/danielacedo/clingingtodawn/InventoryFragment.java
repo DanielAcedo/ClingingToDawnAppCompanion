@@ -1,5 +1,6 @@
 package com.danielacedo.clingingtodawn;
 
+import android.content.Context;
 import android.content.res.Configuration;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,9 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -49,6 +53,7 @@ public class InventoryFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -89,6 +94,8 @@ public class InventoryFragment extends Fragment {
         touchHelper.attachToRecyclerView(rcv_inventoryList);
         rcv_inventoryList.setAdapter(adapter);
 
+        Toast.makeText(getContext(), "Puedes arrastrar los objetos con longclick", Toast.LENGTH_SHORT).show();
+
         return v;
     }
 
@@ -114,5 +121,37 @@ public class InventoryFragment extends Fragment {
         }
 
         super.onViewStateRestored(savedInstanceState);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_inventory, menu);
+
+        MenuItem changeMode = menu.findItem(R.id.item_changeMode);
+
+        if(adapter.getMode() == InventoryObjectRecyclerAdapter.MODE_COMBINE){
+            changeMode.setIcon(getResources().getDrawable(R.drawable.ic_action_combine));
+        }else{
+            changeMode.setIcon(getResources().getDrawable(R.drawable.ic_action_move));
+        }
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.item_changeMode){
+            if(adapter.getMode() == InventoryObjectRecyclerAdapter.MODE_COMBINE){
+                adapter.setMode(InventoryObjectRecyclerAdapter.MODE_MOVE);
+                Toast.makeText(getContext(), String.format(getResources().getString(R.string.inventory_changed_mode), getResources().getString(R.string.inventory_MOVE_MODE)), Toast.LENGTH_SHORT).show();
+                item.setIcon(getResources().getDrawable(R.drawable.ic_action_move));
+            }else{
+                adapter.setMode(InventoryObjectRecyclerAdapter.MODE_COMBINE);
+                Toast.makeText(getContext(), String.format(getResources().getString(R.string.inventory_changed_mode), getResources().getString(R.string.inventory_COMBINE_MODE)), Toast.LENGTH_SHORT).show();
+                item.setIcon(getResources().getDrawable(R.drawable.ic_action_combine));
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

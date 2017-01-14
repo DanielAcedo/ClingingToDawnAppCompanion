@@ -30,6 +30,11 @@ import java.util.List;
 
 public class InventoryObjectRecyclerAdapter extends RecyclerView.Adapter<InventoryObjectRecyclerAdapter.InventoryObjectHolder> implements ItemTouchHelperCallback.ItemTouchHelperAdapter {
 
+    public static final int MODE_COMBINE = 1;
+    public static final int MODE_MOVE = 2;
+
+    private int mode = MODE_COMBINE;
+
     private List<InventoryObject> inventoryObjectList;
     private InventoryObjectCallback callback;
     private Context context;
@@ -64,30 +69,35 @@ public class InventoryObjectRecyclerAdapter extends RecyclerView.Adapter<Invento
                 //Avoid interrupting dragging animations using notifyDataSetChanged()
                 //We track when the drag is happening and once we release the touch, notifyDataSetChanged()
                 //will be called
-                if(startedDragging && (motionEvent.getActionMasked()) == MotionEvent.ACTION_UP){
-                    if(fromPos != -1 && targetPos!= -1){
+                if(startedDragging && (motionEvent.getActionMasked()) == MotionEvent.ACTION_UP) {
+                    if (fromPos != -1 && targetPos != -1) {
                         startedDragging = false;
 
-                        /*exchangePositions(fromPos, targetPos);
-                        fromPos = -1;
-                        targetPos = -1;
+                        switch (mode){
+                            case MODE_MOVE:
+                                exchangePositions(fromPos, targetPos);
+                                fromPos = -1;
+                                targetPos = -1;
 
-                        callback.onMoveEnd(fromPos, targetPos);
+                                callback.onMoveEnd(fromPos, targetPos);
 
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                notifyDataSetChanged();
-                            }
-                        }, 300);*/
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        notifyDataSetChanged();
+                                    }
+                                }, 300);
 
-                            InventoryObject ingredient1 = getItem(fromPos);
-                            InventoryObject ingredient2 = getItem(targetPos);
+                                break;
+                            case MODE_COMBINE:
+                                InventoryObject ingredient1 = getItem(fromPos);
+                                InventoryObject ingredient2 = getItem(targetPos);
 
-                            if(!combineItems(fromPos, targetPos, ingredient1, ingredient2)){
-                                notifyDataSetChanged();
-                            }
-
+                                if (!combineItems(fromPos, targetPos, ingredient1, ingredient2)) {
+                                    notifyDataSetChanged();
+                                }
+                                break;
+                        }
 
                         return true;
                     }
@@ -190,6 +200,14 @@ public class InventoryObjectRecyclerAdapter extends RecyclerView.Adapter<Invento
         }
 
         return -1;
+    }
+
+    public int getMode(){
+        return mode;
+    }
+
+    public void setMode(int mode){
+        this.mode = mode;
     }
 
     @Override
