@@ -8,6 +8,7 @@ package com.danielacedo.clingingtodawn.model;
  * Represents one object in the game's inventory
  */
 public class InventoryObject {
+    private int id;
     private String name;
     private String description;
     private int quantity;
@@ -16,18 +17,20 @@ public class InventoryObject {
     private boolean stackable;
     private boolean combinable;
 
-    public InventoryObject(String name, String description, int image, boolean combinable){
+    public InventoryObject(int id, String name, String description, int image, boolean combinable){
         this.name = name;
         this.description = description;
         this.image = image;
         this.stackable = false;
         this.combinable = combinable;
+        this.id = id;
     }
 
-    public InventoryObject(String name, String description, int image, boolean combinable, int quantity){
-        this(name, description, image, combinable);
+    public InventoryObject(int id,String name, String description, int image, boolean combinable, int quantity){
+        this(id,name, description, image, combinable);
         this.stackable = true;
         this.quantity = quantity;
+
     }
 
     public String getName() {
@@ -69,4 +72,9 @@ public class InventoryObject {
     public boolean isCombinable() {
         return combinable;
     }
+
+    public int getId() {
+        return id;
+    }
+
 }

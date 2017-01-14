@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,13 +34,22 @@ public class InventoryFragment extends Fragment {
     private final int SPAN_NUMBER_LANDSCAPE = 4; //Number of elements per row on landscape
 
     private final String ITEM_DESCRIPTION = "description";
+    private final String SELECTED_ITEM = "selected";
 
     private RecyclerView rcv_inventoryList;
     private InventoryObjectRecyclerAdapter adapter;
+    private ItemTouchHelper.Callback touchHelper;
+
     private TextView txv_InventoryDescription;
 
     //RecyclerView selected element
     private InventoryObjectRecyclerAdapter.InventoryObjectHolder selectedInventoryObject;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -59,50 +69,39 @@ public class InventoryFragment extends Fragment {
         }
 
         //Set Adapter
-        adapter = new InventoryObjectRecyclerAdapter(container.getContext(), new InventoryObjectRecyclerAdapter.InventoryObjectOnClick() {
+        adapter = new InventoryObjectRecyclerAdapter(container.getContext(), new InventoryObjectRecyclerAdapter.InventoryObjectCallback() {
             @Override
             public void onClick(InventoryObject inventoryObject, InventoryObjectRecyclerAdapter.InventoryObjectHolder holder) { //OnClick method to be executed for each recyclerview item
                 //region OnClickAdapter
                 txv_InventoryDescription.setText(inventoryObject.getDescription()); //Display the object's description in its TextView
 
-                if(!holder.getSelected()){
-
-                    //If there was a selected item before we deselect it and change its background color back to normal
-                    if (selectedInventoryObject !=  null){
-                        selectedInventoryObject.itemView.setSelected(false);
-                        ((CardView)selectedInventoryObject.itemView.findViewById(R.id.card_view)).setCardBackgroundColor(getResources().getColor(R.color.colorPrimary));
-
-                    }
-
-
-                    //Flag the item as selected and change its background color
-                    selectedInventoryObject = holder;
-                    selectedInventoryObject.itemView.setSelected(true);
-                    ((CardView)selectedInventoryObject.itemView.findViewById(R.id.card_view)).setCardBackgroundColor(getResources().getColor(R.color.inventoryObjectBackground_selected));
-                }
-
                 //endregion
             }
-        });
 
-        rcv_inventoryList.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public boolean onLongClick(View v) {
-                return false;
+            public void onMoveEnd(int fromPos, int targetPos) {
+
             }
         });
 
-        rcv_inventoryList.setAdapter(new SlideInBottomAnimationAdapter(adapter));
-
-
+        ItemTouchHelperCallback touchCallback = new ItemTouchHelperCallback(adapter);
+        ItemTouchHelper touchHelper = new ItemTouchHelper(touchCallback);
+        touchHelper.attachToRecyclerView(rcv_inventoryList);
+        rcv_inventoryList.setAdapter(adapter);
 
         return v;
     }
+
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         if(txv_InventoryDescription!=null){
             outState.putString(ITEM_DESCRIPTION, txv_InventoryDescription.getText().toString());
+        }
+
+        if(adapter.getSelectedPos()!=-1){
+            outState.putInt(SELECTED_ITEM, adapter.getSelectedPos());
         }
         super.onSaveInstanceState(outState);
     }
@@ -111,7 +110,9 @@ public class InventoryFragment extends Fragment {
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         if(savedInstanceState!=null){
             txv_InventoryDescription.setText(savedInstanceState.getString(ITEM_DESCRIPTION));
+            adapter.setSelectedPos(savedInstanceState.getInt(SELECTED_ITEM));
         }
+
         super.onViewStateRestored(savedInstanceState);
     }
 }
