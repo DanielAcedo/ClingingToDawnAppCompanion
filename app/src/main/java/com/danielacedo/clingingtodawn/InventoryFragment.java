@@ -39,6 +39,7 @@ public class InventoryFragment extends Fragment {
 
     private final String ITEM_DESCRIPTION = "description";
     private final String SELECTED_ITEM = "selected";
+    private final String ADAPTER_MODE = "adaptermode";
 
     private RecyclerView rcv_inventoryList;
     private InventoryObjectRecyclerAdapter adapter;
@@ -107,9 +108,11 @@ public class InventoryFragment extends Fragment {
             outState.putString(ITEM_DESCRIPTION, txv_InventoryDescription.getText().toString());
         }
 
-        if(adapter.getSelectedPos()!=-1){
-            outState.putInt(SELECTED_ITEM, adapter.getSelectedPos());
-        }
+
+        outState.putInt(SELECTED_ITEM, adapter.getSelectedPos());
+
+
+        outState.putInt(ADAPTER_MODE, adapter.getMode());
         super.onSaveInstanceState(outState);
     }
 
@@ -117,7 +120,12 @@ public class InventoryFragment extends Fragment {
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         if(savedInstanceState!=null){
             txv_InventoryDescription.setText(savedInstanceState.getString(ITEM_DESCRIPTION));
-            adapter.setSelectedPos(savedInstanceState.getInt(SELECTED_ITEM));
+
+            int selectedPos = savedInstanceState.getInt(SELECTED_ITEM);
+            if(selectedPos != -1){
+                adapter.setSelectedPos(selectedPos);
+            }
+            adapter.setMode(savedInstanceState.getInt(ADAPTER_MODE));
         }
 
         super.onViewStateRestored(savedInstanceState);
