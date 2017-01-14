@@ -4,6 +4,7 @@ import android.content.res.Configuration;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,9 @@ import android.widget.Toast;
 
 import com.danielacedo.clingingtodawn.adapter.InventoryObjectRecyclerAdapter;
 import com.danielacedo.clingingtodawn.model.InventoryObject;
+
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter;
 
 /**
  * Created by Daniel on 3/11/16.
@@ -65,16 +69,16 @@ public class InventoryFragment extends Fragment {
 
                     //If there was a selected item before we deselect it and change its background color back to normal
                     if (selectedInventoryObject !=  null){
-                        selectedInventoryObject.setSelected(false);
-                        selectedInventoryObject.itemView.setBackgroundColor(getResources().getColor(R.color.tab_content_background_dark));
+                        selectedInventoryObject.itemView.setSelected(false);
+                        ((CardView)selectedInventoryObject.itemView.findViewById(R.id.card_view)).setCardBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
                     }
 
 
                     //Flag the item as selected and change its background color
                     selectedInventoryObject = holder;
-                    holder.setSelected(true);
-                    holder.itemView.setBackgroundColor(getResources().getColor(R.color.inventoryObjectBackground_selected));
-                    holder.itemView.setBackgroundColor(getResources().getColor(R.color.inventoryObjectBackground_selected));
+                    selectedInventoryObject.itemView.setSelected(true);
+                    ((CardView)selectedInventoryObject.itemView.findViewById(R.id.card_view)).setCardBackgroundColor(getResources().getColor(R.color.inventoryObjectBackground_selected));
                 }
 
                 //endregion
@@ -88,7 +92,7 @@ public class InventoryFragment extends Fragment {
             }
         });
 
-        rcv_inventoryList.setAdapter(adapter);
+        rcv_inventoryList.setAdapter(new SlideInBottomAnimationAdapter(adapter));
 
 
 

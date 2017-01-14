@@ -26,7 +26,7 @@
             android:layout_weight="8"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
-            android:background="@color/inventoryObjectDescription_background"
+            android:background="@color/colorPrimaryDark"
             android:textColor="@color/inventoryObjectDescription_textColor"
             android:gravity="fill_vertical"
             android:id="@+id/txv_inventoryDescription"/>

@@ -1,6 +1,9 @@
 package com.danielacedo.clingingtodawn.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -75,6 +78,7 @@ public class InventoryObjectRecyclerAdapter extends RecyclerView.Adapter<Invento
     }
 
     public static class InventoryObjectHolder extends RecyclerView.ViewHolder{
+        CardView cardview;
         ImageView imv_inventoryObjectImage;
         TextView txv_inventoryObjectName;
         TextView txv_inventoryObjectQuantity;
@@ -83,10 +87,15 @@ public class InventoryObjectRecyclerAdapter extends RecyclerView.Adapter<Invento
 
         public InventoryObjectHolder(View v) {
             super(v);
+            cardview = (CardView)v.findViewById(R.id.card_view);
             imv_inventoryObjectImage = (ImageView)v.findViewById(R.id.imv_inventoryObjectImage);
             txv_inventoryObjectName = (TextView)v.findViewById(R.id.txv_inventoryObjectName);
             txv_inventoryObjectQuantity = (TextView)v.findViewById(R.id.txv_inventoryObjectQuantity);
             isSelected = false;
+        }
+
+        public void setCardBackground(int color){
+            cardview.setCardBackgroundColor(color);
         }
 
         public boolean getSelected(){
