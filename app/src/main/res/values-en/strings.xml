@@ -39,4 +39,11 @@
     <string name="txv_User">User</string>
     <string name="txv_UserRegister">User</string>
     <string name="txv_RecoverPassword"><a href="www.google.com">Recover password</a></string>
+    <string name="inventory_COMBINE_MODE">combine</string>
+    <string name="inventory_MOVE_MODE">move</string>
+    <string name="inventory_changed_mode">You have changed to %1$s mode</string>
+    <string name="menu_inventory_changeMode">Change mode</string>
+    <string name="inventory_combine_created">Created %1$s using %2$s and %3$s</string>
+    <string name="inventory_combine_not_combinable">%1$s is not combinable</string>
+    <string name="inventory_drag_advice">You can drag objects using LongClick</string>
 </resources>

@@ -95,7 +95,7 @@ public class InventoryFragment extends Fragment {
         touchHelper.attachToRecyclerView(rcv_inventoryList);
         rcv_inventoryList.setAdapter(adapter);
 
-        Toast.makeText(getContext(), "Puedes arrastrar los objetos con longclick", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), R.string.inventory_drag_advice, Toast.LENGTH_SHORT).show();
 
         return v;
     }

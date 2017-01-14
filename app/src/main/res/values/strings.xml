@@ -26,6 +26,9 @@
     <string name="inventory_changed_mode">Has cambiado a modo %1$s</string>
     <string name="inventory_COMBINE_MODE">combinar</string>
     <string name="inventory_MOVE_MODE">mover</string>
+    <string name="inventory_drag_advice">Puedes arrastrar los objetos con longclick</string>
+    <string name="inventory_combine_not_combinable">%1$s no es combinable</string>
+    <string name="inventory_combine_created">Creado %1$s usando %2$s y %3$s</string>
 
     <!-- About -->
     <string name="about_content">Clinging to Dawn Companion app.\n v0.1 \n\n Contacto: DanielExMachina0451@gmail.com</string>

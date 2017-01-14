@@ -119,12 +119,12 @@ public class InventoryObjectRecyclerAdapter extends RecyclerView.Adapter<Invento
     private boolean combineItems(int fromPos, int targetPos, InventoryObject ingredient1, InventoryObject ingredient2) {
         try {
             if (!ingredient1.isCombinable()) {
-                Toast.makeText(context, ingredient1.getName() + " is not combinable", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, String.format(context.getString(R.string.inventory_combine_not_combinable), ingredient1.getName()), Toast.LENGTH_SHORT).show();
                 return false;
             }
 
             if (!ingredient2.isCombinable()) {
-                Toast.makeText(context, ingredient2.getName() + " is not combinable", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, String.format(context.getString(R.string.inventory_combine_not_combinable), ingredient1.getName()), Toast.LENGTH_SHORT).show();
                 return false;
             }
 
