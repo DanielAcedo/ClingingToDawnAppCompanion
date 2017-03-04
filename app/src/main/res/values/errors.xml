@@ -12,4 +12,7 @@
     <string name="err_emailNotValid">El email no es valido</string>
     <string name="err_companyNameEmpty">El nombre de la empresa no puede estar vacío</string>
 
+    <!-- ManageNote -->
+    <string name="err_mn_fieldsEmpty">Los campos no pueden estar vacíos</string>
+
 </resources>

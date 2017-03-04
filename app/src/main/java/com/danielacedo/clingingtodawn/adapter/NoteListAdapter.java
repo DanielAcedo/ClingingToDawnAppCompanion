@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.danielacedo.clingingtodawn.R;
 import com.danielacedo.clingingtodawn.ReadNoteActivity;
+import com.danielacedo.clingingtodawn.db.NoteDatabaseManager;
 import com.danielacedo.clingingtodawn.model.Note;
 import com.danielacedo.clingingtodawn.repository.NoteRepository;
 
@@ -26,7 +27,7 @@ public class NoteListAdapter extends ArrayAdapter<Note> {
     private boolean sortedAlphAscendent;
 
     public NoteListAdapter(Context context){
-        super(context, R.layout.notelist_layout, NoteRepository.getNotes());
+        super(context, R.layout.notelist_layout, NoteDatabaseManager.getNotes());
         sortedAlphAscendent = false;
     }
 
@@ -49,23 +50,15 @@ public class NoteListAdapter extends ArrayAdapter<Note> {
 
         holder.txv_noteListTitle.setText(getItem(position).getTitle());
 
-        item.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openReadNoteActivity(position);
-            }
-        });
-
         return item;
     }
 
-    private void openReadNoteActivity(int position){
-        Intent intent = new Intent(getContext(), ReadNoteActivity.class);
-        intent.putExtra(ReadNoteActivity.TITLE, getItem(position).getTitle());
-        intent.putExtra(ReadNoteActivity.CONTENT, getItem(position).getContent());
-        intent.putExtra(ReadNoteActivity.BACKGROUND, getItem(position).getBackgroundImage());
-        getContext().startActivity(intent);
+    public void refreshSource(){
+        clear();
+        addAll(NoteDatabaseManager.getNotes());
     }
+
+
 
     public void sortAlphabetically(){
         Comparator<Note> comparator = sortedAlphAscendent ? Note.compareAlphabeticallyDescendent : Note.compareAlphabeticallyAscendent;

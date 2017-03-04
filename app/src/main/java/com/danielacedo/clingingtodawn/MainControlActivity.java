@@ -3,6 +3,9 @@ package com.danielacedo.clingingtodawn;
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,9 +17,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.danielacedo.clingingtodawn.adapter.MainViewPagerAdapter;
+import com.danielacedo.clingingtodawn.db.DatabaseHelper;
 
 
-public class MainControlActivity extends AppCompatActivity {
+public class MainControlActivity extends AppCompatActivity implements NoteListFragment.NoteListCallback, ManageNoteFragment.ManageNoteCallback {
 
     private TabLayout tablayout;
     private Toolbar toolbar;
@@ -30,6 +34,8 @@ public class MainControlActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_control_tablayout);
+
+        DatabaseHelper.getInstance().getWritableDatabase().close();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -114,7 +120,43 @@ public class MainControlActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        //No se puede pulsar
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = fragmentManager.findFragmentByTag(ManageNoteFragment.TAG);
+
+        if(fragment != null){
+           FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.remove(fragment);
+            transaction.commit();
+
+            tablayout.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void showManageNotes(Bundle bundle) {
+        tablayout.setVisibility(View.GONE);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.activity_list, ManageNoteFragment.newInstance(bundle), ManageNoteFragment.TAG);
+        transaction.addToBackStack(ManageNoteFragment.TAG);
+        transaction.commit();
+    }
+
+    @Override
+    public void openNoteList() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = fragmentManager.findFragmentByTag(ManageNoteFragment.TAG);
+
+        if(fragment != null){
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.remove(fragment);
+            transaction.commit();
+
+            viewpager.setAdapter(adapter);
+            viewpager.setCurrentItem(1);
+            tablayout.setVisibility(View.VISIBLE);
+
+        }
     }
 
     private View getTabIndicator(Context context, String title){
