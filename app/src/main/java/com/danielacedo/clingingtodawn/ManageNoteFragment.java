@@ -1,8 +1,11 @@
 package com.danielacedo.clingingtodawn;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -111,6 +114,21 @@ public class ManageNoteFragment extends Fragment {
             Note note = new Note(title, description);
 
             NoteDatabaseManager.insertNote(note);
+
+            //Show notification
+            NotificationManager nm = (NotificationManager)getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(getContext());
+            Notification notification = builder.setContentTitle("Nota añadida")
+                    .setContentText("Añadida nota '"+note.getTitle()+"'")
+                    .setSmallIcon(android.R.drawable.ic_notification_overlay)
+                    .setAutoCancel(true)
+                    .setPriority(Notification.PRIORITY_HIGH)
+                    .setDefaults(Notification.DEFAULT_ALL)
+                    .build();
+
+            nm.notify(null, 1, notification);
+
             mListener.openNoteList();
         }
     }
